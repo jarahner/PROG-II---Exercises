@@ -39,7 +39,7 @@ public class Coin {
 		new Coin("5-Cent", 5),
 		new Coin("10-Cent", 10),
 		new Coin("20-Cent", 20),
-		new Coin("30-Cent", 30),
+		// new Coin("30-Cent", 30),
 		new Coin("50-Cent", 50),
 		new Coin("1-Euro", 100),
 		new Coin("2-Euro", 200),
