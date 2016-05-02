@@ -19,20 +19,18 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 			rückgabe[i] = 0;
 		
 		// VERSION 1
-		/** int i = Coin.availableCoins.length-1;
-		do{
-			rückgabe[i] = rest / Coin.availableCoins[i].getValue();
-			rest %= Coin.availableCoins[i].getValue();
-			i--;
-		} while(rest > 0);
-		**/
+//		int i = Coin.availableCoins.length;
+//		do{
+//			rückgabe[i] = rest / Coin.availableCoins[i].getValue();
+//			rest %= Coin.availableCoins[i].getValue();
+//			i--;
+//		} while(rest > 0);
 		
 		// VERSION 2
 		for(int i = Coin.availableCoins.length-1; rest>0 && i>=0; i--){
 			rückgabe[i] = rest / Coin.availableCoins[i].getValue();
 			rest %= Coin.availableCoins[i].getValue();
 		}
-		
 		return rückgabe;
 	}
 	
