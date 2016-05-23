@@ -30,7 +30,7 @@ public interface NaviConInterface {
 	// (vgl. Aufgabenblatt)
 
 	// Vorbedingung: Die Referenz zum GPS-Modul wurde vorher gesetzt.
-	Point getCurrentPosition() throws InstantiationException, NullPointerException;
+	Point getCurrentPosition() throws InstantiationException, NullPointerException, Exception;
 	// Nachbedingung: 
 	//    NullPointerException mit Text "NoGeoManager", falls nicht vorab gesetzt.
 	//    InstantiationException, falls Reset notwendig ist (vgl. Arbeitsblatt)

@@ -14,24 +14,26 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 	// Hier fehlt Ihre Implementierung
 	public int[] getChange(int euros, int cent){
 		int rest = euros*100 + cent;
-		int rückgabe[] = new int[Coin.availableCoins.length];
+		int rueckgabe[] = new int[Coin.availableCoins.length];
 		for (int i=0; i<Coin.availableCoins.length; i++)
-			rückgabe[i] = 0;
+			rueckgabe[i] = 0;
 		
 		// VERSION 1
-//		int i = Coin.availableCoins.length;
+//		int i = Coin.availableCoins.length - 1;
 //		do{
-//			rückgabe[i] = rest / Coin.availableCoins[i].getValue();
+//			rÃ¼ckgabe[i] = rest / Coin.availableCoins[i].getValue();
 //			rest %= Coin.availableCoins[i].getValue();
 //			i--;
 //		} while(rest > 0);
 		
 		// VERSION 2
 		for(int i = Coin.availableCoins.length-1; rest>0 && i>=0; i--){
-			rückgabe[i] = rest / Coin.availableCoins[i].getValue();
+			rueckgabe[i] = rest / Coin.availableCoins[i].getValue();
 			rest %= Coin.availableCoins[i].getValue();
 		}
-		return rückgabe;
+		//END VERSION 2
+		
+		return rueckgabe;
 	}
 	
 	
@@ -46,7 +48,7 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 		int j = 0;
 		EnhancedChangeCalculator calc = new EnhancedChangeCalculator();
 		
-		System.out.println("\nZuerst ein simpler Fall: Es sollen 1 Euro und 70 Cent Wechselgeld zurückgegeben werden:");
+		System.out.println("\nZuerst ein simpler Fall: Es sollen 1 Euro und 70 Cent Wechselgeld zurÃ¼ckgegeben werden:");
 		int[] result = calc.getChange(1,70);
 		
 		System.out.println("\nDer Automat gibt folgende Muenzen zurueck:");
@@ -56,9 +58,9 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 			System.out.println(result[i] + " x " + Coin.availableCoins[i].getName());
 			j += result[i];
 		}//endfor
-		System.out.println("Anzahl der Münzen: " + j);
+		System.out.println("Anzahl der MÃ¼nzen: " + j);
 		
-		System.out.println("\nJetzt ein bißchen schwieriger: Es sollen 3 Euro und 88 Cent Wechselgeld zurückgegeben werden:");
+		System.out.println("\nJetzt ein bisschen schwieriger: Es sollen 3 Euro und 88 Cent Wechselgeld zurÃ¼ckgegeben werden:");
 		result = calc.getChange(3,88);
 		
 		System.out.println("\nDer Automat gibt folgende Muenzen zurueck:");
@@ -68,7 +70,7 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 			System.out.println(result[i] + " x " + Coin.availableCoins[i].getName());
 			j += result[i];
 		}//endfor
-		System.out.println("Anzahl der Münzen: " + j);
+		System.out.println("Anzahl der MÃ¼nzen: " + j);
 		
 		
 		System.out.println("\nPassend gezahlt. Kein Wechselgeld:");
@@ -81,7 +83,7 @@ public class EnhancedChangeCalculator extends SimpleChangeCalculator
 			System.out.println(result[i] + " x " + Coin.availableCoins[i].getName());
 			j += result[i];
 		}//endfor
-		System.out.println("Anzahl der Münzen: " + j);
+		System.out.println("Anzahl der MÃ¼nzen: " + j);
 	}//endmethod main
 	
 }//endclass EnhancedChangeCalculator

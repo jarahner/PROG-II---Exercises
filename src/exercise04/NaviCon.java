@@ -14,12 +14,16 @@ public class NaviCon implements NaviConInterface {
 	}
 
 	@Override
-	public Point getCurrentPosition() throws InstantiationException, NullPointerException {
+	public Point getCurrentPosition() throws Exception {
 		try {
 			return modul.currentLocation().moved(1, -1);
 		} 
 		catch (IllegalAccessException e) {
 			return getCurrentPosition();
+		}
+		catch (NullPointerException e)
+		{
+			throw new NullPointerException("NoGeoManager");
 		}
 	}
 
