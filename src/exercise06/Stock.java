@@ -16,8 +16,10 @@ public class Stock implements GoodsSource, GoodsSink{
 
 	@Override
 	public boolean deliver(int count) {
-		if(stock >= count)
+		if(stock >= count) {
+			stock -= count;
 			return true;
+		}
 		else return false;
 	}
 	
